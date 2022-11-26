@@ -5,10 +5,13 @@ function Input(props) {
   const [val, setVal] = useState("");
   const [passMsg, setPassMsg] = useState({ msg: "", color: "" });
   function handlePass(pass) {
+    setPassMsg("");
     let count = 0;
-    if (pass.length >= 1) {
+    let lower = /[a-z]/.test(pass);
+    if (lower) {
       count = count + 1;
     }
+
     let num = false;
     pass.split("").forEach((e) => {
       if (!isNaN(e)) {
