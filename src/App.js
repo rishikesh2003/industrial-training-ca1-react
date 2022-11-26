@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import InputContainer from "./components/InputContainer/InputContainer";
 
-function App() {
+export default function App() {
+  const inputArr = [
+    {
+      type: "text",
+
+      label: "Enter your username",
+
+      placeholder: "Your Username",
+
+      datatestid: "username",
+    },
+
+    {
+      type: "email",
+
+      label: "Enter your email",
+
+      placeholder: "Your Email",
+
+      datatestid: "email",
+    },
+
+    {
+      type: "password",
+
+      label: "Enter your password",
+
+      placeholder: "Your Password",
+
+      datatestid: "password",
+    },
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="form">
+      <h1>Dynamic Form</h1>
+      {inputArr.map((el, index) => (
+        <InputContainer
+          key={index}
+          type={el.type}
+          placeholder={el.placeholder}
+          testId={el.datatestid}
+          label={el.label}
+        />
+      ))}
     </div>
   );
 }
-
-export default App;
